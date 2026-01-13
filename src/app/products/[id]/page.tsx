@@ -45,17 +45,25 @@ export default function ProductPage({
   // 🔒 TypeScript is now permanently satisfied from here on
   const productId: number = product.id;
 
-  function handleBuy() {
-    togglePurchased(productId);
-    setPurchased(true);
-    setShowDialog(true);
-    setTimeout(() => setShowDialog(false), 3000);
-  }
+function handleBuy() {
+  const id = product?.id;
+  if (!id) return;
 
-  function handleFav() {
-    toggleFavorite(productId);
-    setFav((prev) => !prev);
-  }
+  togglePurchased(id);
+  setPurchased(true);
+  setShowDialog(true);
+  setTimeout(() => setShowDialog(false), 3000);
+}
+
+
+function handleFav() {
+  const id = product?.id;
+  if (!id) return;
+
+  toggleFavorite(id);
+  setFav(prev => !prev);
+}
+
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-8 bg-white min-h-screen">
