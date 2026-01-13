@@ -43,6 +43,7 @@ function handleBuy() {
   setTimeout(() => setShowDialog(false), 3000);
 }
 
+
 function handleFav() {
   if (!product) return;
 
