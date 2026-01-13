@@ -32,7 +32,6 @@ export default function ProductPage({
     });
   }, [params]);
 
-  // 🔐 HARD TYPE GUARD — TS is now satisfied everywhere
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -42,22 +41,25 @@ export default function ProductPage({
       </div>
     );
   }
-  
-function handleBuy() {
-  if (!product) return;
 
-  togglePurchased(product.id);
+const productId = product?.id;
+
+function handleBuy() {
+  if (!productId) return;
+
+  togglePurchased(productId);
   setPurchased(true);
   setShowDialog(true);
   setTimeout(() => setShowDialog(false), 3000);
 }
 
 function handleFav() {
-  if (!product) return;
+  if (!productId) return;
 
-  toggleFavorite(product.id);
-  setFav(!fav);
+  toggleFavorite(productId);
+  setFav(prev => !prev);
 }
+
 
 
 
