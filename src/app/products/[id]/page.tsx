@@ -25,10 +25,13 @@ export default function ProductPage({
 
   useEffect(() => {
     params.then(async ({ id }) => {
-      const data = await fetchProductById(id);
-      setProduct(data);
-      setFav(getFavorites().includes(data.id));
-      setPurchased(getPurchased().includes(data.id));
+   const data = await fetchProductById(id);
+if (!data) return;
+
+setProduct(data);
+setFav(getFavorites().includes(data.id));
+setPurchased(getPurchased().includes(data.id));
+
     });
   }, [params]);
 
