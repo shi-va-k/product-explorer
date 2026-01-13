@@ -42,11 +42,9 @@ export default function ProductPage({
     );
   }
 
-const productId = product?.id;
+const productId: number = product.id;
 
 function handleBuy() {
-  if (!productId) return;
-
   togglePurchased(productId);
   setPurchased(true);
   setShowDialog(true);
@@ -54,8 +52,6 @@ function handleBuy() {
 }
 
 function handleFav() {
-  if (!productId) return;
-
   toggleFavorite(productId);
   setFav(prev => !prev);
 }
