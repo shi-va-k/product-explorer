@@ -34,17 +34,22 @@ if (!product) {
 
 
 
-  function handleBuy() {
-    togglePurchased(product.id);
-    setPurchased(true);
-    setShowDialog(true);
-    setTimeout(() => setShowDialog(false), 3000);
-  }
+function handleBuy() {
+  if (!product) return;
 
-  function handleFav() {
-    toggleFavorite(product.id);
-    setFav(!fav);
-  }
+  togglePurchased(product.id);
+  setPurchased(true);
+  setShowDialog(true);
+  setTimeout(() => setShowDialog(false), 3000);
+}
+
+function handleFav() {
+  if (!product) return;
+
+  toggleFavorite(product.id);
+  setFav(!fav);
+}
+
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-8 bg-white dark:bg-gray-950 min-h-screen text-black dark:text-white transition">

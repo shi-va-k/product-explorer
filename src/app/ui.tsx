@@ -87,13 +87,22 @@ hover:shadow-sm"
   <div className="max-w-7xl mx-auto px-4">
 
   {displayedProducts.length === 0 ? (
-  <div className="text-center py-20 text-gray-500">
-    <p className="text-xl">No products found for</p>
-    <p className="font-semibold mt-1">"{search}"</p>
-  </div>
+  search.trim() ? (
+    <div className="text-center py-20 text-gray-500">
+      <p className="text-xl">No products found for</p>
+      <p className="font-semibold mt-1">"{search}"</p>
+    </div>
+  ) : showFav ? (
+    <div className="text-center py-20 text-gray-500">
+      <p className="text-xl">No favorite products yet</p>
+      <p className="mt-1 text-sm">Start adding some ❤️</p>
+    </div>
+  ) : null
 ) : (
   <>
-   <ProductGrid products={displayedProducts} />
+  <ProductGrid products={displayedProducts} />
+
+
    
   <div className="flex justify-center items-center gap-4 my-6">
 
