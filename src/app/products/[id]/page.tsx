@@ -42,22 +42,20 @@ export default function ProductPage({
     );
   }
 
-const productId: number = product.id;
+  // 🔒 TypeScript is now permanently satisfied from here on
+  const productId: number = product.id;
 
-function handleBuy() {
-  togglePurchased(productId);
-  setPurchased(true);
-  setShowDialog(true);
-  setTimeout(() => setShowDialog(false), 3000);
-}
+  function handleBuy() {
+    togglePurchased(productId);
+    setPurchased(true);
+    setShowDialog(true);
+    setTimeout(() => setShowDialog(false), 3000);
+  }
 
-function handleFav() {
-  toggleFavorite(productId);
-  setFav(prev => !prev);
-}
-
-
-
+  function handleFav() {
+    toggleFavorite(productId);
+    setFav((prev) => !prev);
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-8 bg-white min-h-screen">
