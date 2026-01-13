@@ -42,18 +42,24 @@ export default function ProductPage({
       </div>
     );
   }
+  
+function handleBuy() {
+  if (!product) return;
 
-  function handleBuy() {
-    togglePurchased(product.id);
-    setPurchased(true);
-    setShowDialog(true);
-    setTimeout(() => setShowDialog(false), 3000);
-  }
+  togglePurchased(product.id);
+  setPurchased(true);
+  setShowDialog(true);
+  setTimeout(() => setShowDialog(false), 3000);
+}
 
-  function handleFav() {
-    toggleFavorite(product.id);
-    setFav((prev) => !prev);
-  }
+function handleFav() {
+  if (!product) return;
+
+  toggleFavorite(product.id);
+  setFav(!fav);
+}
+
+
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-8 bg-white min-h-screen">
